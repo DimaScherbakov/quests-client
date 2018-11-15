@@ -2,12 +2,14 @@
   <div class="container">
   <h1>Quests {{heart}}</h1>
   <ul id="example-1" class="list-inline inline row">
-    <a v-bind:herf="'quest/'+quest.alias+quest.globalId+'/'" v-for="quest in quests" class="list-inline-item list-group-item-action col-sm-4" style="margin-right:0;padding:0">
+    <div v-for="quest in quests" class="list-inline-item list-group-item-action col-sm-4" style="margin-right:0;padding:0">
+<router-link :to=url+quest.alias+slash+quest.globalId>
       <div class="border">{{ quest.alias }}</div>
       <div v-if="quest.status=='SUCCESS'" class="border border-top-0">+</div>
       <div v-else-if="quest.status=='CRASH'" class="border border-top-0">-</div>
       <div v-else class="border border-top-0">?</div>
-    </a>
+</router-link>
+</div>
   </ul>
   </div>
 </template>
@@ -20,7 +22,9 @@
     heart: icons.heart,
     data () {
       return {
-        quests: []
+        quests: [],
+        url: 'quest/',
+        slash: '/'
       }
     },
     methods: {
@@ -29,7 +33,8 @@
         console.log(response)
         // this.posts = response.data.posts
         this.quests = response.data;
-      }
+      },
+
     },
     mounted () {
       this.getQuests()
