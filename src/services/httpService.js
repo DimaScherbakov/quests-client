@@ -1,11 +1,13 @@
-import api from '@/services/api'
+import api from "@/services/api";
 
 export default {
-  getQuests () {
-    return api().get('quests');
+  getQuests() {
+    return api().get("quests");
   },
 
-  getQuestById (alias,globalId) {
-    return api().get('quest/'+alias+'/'+globalId);
+  getQuestById(alias, globalId) {
+    return api()
+      .get("quest/" + alias + "/" + globalId)
+      .catch(function(error) {});
   }
-}
+};
