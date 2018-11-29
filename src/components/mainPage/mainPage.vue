@@ -13,8 +13,19 @@
   </ul>
   </div>
 </template>
+<script>
+ 
+require('@/components/mainPage/style.css')
+
+</script>
 <script src="https://cdn.rawgit.com/download/glyphicons/0.1.0/glyphicons.js"></script>
 <script>
+// <style>
+//   a,a:hover{
+//     color: black;
+//     text-decoration: none;
+// }
+// </style>
 import httpService from "@/services/httpService";
 export default {
   name: "mainPage",
@@ -38,3 +49,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+a,a:hover {
+  text-decoration:none;
+  color: #000;
+}
+.fa-check{
+  color:green;
+}
+.fa-times{
+  color:red;
+}
+</style>

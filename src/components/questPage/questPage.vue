@@ -68,13 +68,13 @@ export default {
       const response = await httpService.getQuestById(alias, globalId);
       if (response) {
         this.quest = response.data;
-        console.log(this.quest);
+        // console.log(this.quest);
 
         this.passedQuests = this.quest.passedQuestsCount;
         this.notPassedQuests =
           this.quest.pathway.leafs.length - this.quest.passedQuestsCount;
-        console.log(this.passedQuests);
-        console.log(typeof this.passedQuests);
+        // console.log(this.passedQuests);
+        // console.log(typeof this.passedQuests);
       } else {
         this.$router.push("/404");
       }
@@ -85,3 +85,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.fa-long-arrow-alt-right{
+  margin:0 7px;
+}
+</style>
